@@ -11,6 +11,18 @@
 //
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
+
+Cypress.Commands.add('testlogin', (username,password) => {
+    cy.get('#login2').click()
+    cy.get('#loginusername').type(username).should('be.visible')
+    cy.wait(100)
+    cy.get('#loginpassword').type(password)
+    cy.get('#logInModal > .modal-dialog > .modal-content > .modal-footer > .btn-primary').click()
+})
+
+Cypress.Commands.add('testketik', (element,value) => {
+    cy.get(element).clear().type(value)
+})
 //
 //
 // -- This is a child command --
